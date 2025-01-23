@@ -5,4 +5,9 @@
 //String form - bill, coin, whatever physical form the currency takes
 //String img - containing image name and path for use of currency
 
-public record Denomination(String name, double amt, String form, String img) { }
+public record Denomination(String name, double amt, String form, String img) {}
+
+    /*
+    public Denomination(){    //make a constructor? I don't know if I need it.
+    }
+     */
