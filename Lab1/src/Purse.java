@@ -30,8 +30,7 @@ public class Purse {
     double remove (Denomination type, int num) {
 
         if (cash.containsKey(type)) {   //only execute if type of denomination is in the purse
-            if (cash.get(type) <= num) { //if number of bills to be removed is greater or equal to the amount available, set num to number of type's value and remove type from cash map
-                num = cash.get(type);
+            if (cash.get(type) <= num) { //if number of bills to be removed is greater or equal to the amount available, remove type from cash map
                 cash.remove(type);
             }
             else {
