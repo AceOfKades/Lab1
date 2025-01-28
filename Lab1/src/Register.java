@@ -12,24 +12,23 @@ public class Register {
     public static Purse makeChange(double amt)      //converts the given amt to into denominations that are stored in a returned purse object
     {
         List<Denomination> denominations = List.of(                                                   //List of all denominations
-                new Denomination("One-Hundred-Dollar", 100.00, "Bill", ""),      //Hundred Dollar Bill
-                new Denomination("Fifty-Dollar", 50.00, "Bill", ""),             //Fifty Dollar Bill
-                new Denomination("Twenty-Dollar", 20.00, "Bill", ""),            //Twenty Dollar Bill
-                new Denomination("Ten-Dollar", 10.00, "Bill", ""),               //Ten Dollar Bill
-                new Denomination("Five-Dollar", 5.00, "Bill", ""),               //Five Dollar Bill
-                new Denomination("One-Dollar", 1.00, "Bill", ""),                //One Dollar Bill
-                new Denomination("Quarter", 0.25, "Coin", ""),                   //Quarter
-                new Denomination("Dime", 0.10, "Coin", ""),                      //Dime
-                new Denomination("Nickel", 0.05, "Coin", ""),                    //Nickel
-                new Denomination("Penny", 0.01, "Coin", "")                      //Penny
+                new Denomination("One-Hundred-Dollar", 100.00, "Bill", "Images\\one_hundred_dollar.png"),      //Hundred Dollar Bill
+                new Denomination("Fifty-Dollar", 50.00, "Bill", "Images\\fifty_dollar.png"),             //Fifty Dollar Bill
+                new Denomination("Twenty-Dollar", 20.00, "Bill", "Images\\twenty_dollar.png"),            //Twenty Dollar Bill
+                new Denomination("Ten-Dollar", 10.00, "Bill", "Images\\ten_dollar.png"),               //Ten Dollar Bill
+                new Denomination("Five-Dollar", 5.00, "Bill", "Images\\five_dollar.png"),               //Five Dollar Bill
+                new Denomination("One-Dollar", 1.00, "Bill", "Images\\one_dollar.png"),                //One Dollar Bill
+                new Denomination("Quarter", 0.25, "Coin", "Images\\quarter.png"),                   //Quarter
+                new Denomination("Dime", 0.10, "Coin", "Images\\dime.png"),                      //Dime
+                new Denomination("Nickel", 0.05, "Coin", "Images\\nickel.png"),                    //Nickel
+                new Denomination("Penny", 0.01, "Coin", "Images\\penny.png")                      //Penny
         );
 
         Purse purse = new Purse(); // new purse to be filled and returned
 
-        amt = Math.round((100.0*amt))/100.0; //Round amt to the nearest significant digit. Problem is, Math.round() rounds to the nearest *integer*. That requires
-                                            //multiplying amt by 100 to retain significant digits, rounding, and then dividing it back down to its intended value.
-
         for (Denomination list : denominations) {   //iterate through list of denominations
+            amt = Math.round((100.0*amt))/100.0; //Round amt to the nearest significant digit. Problem is, Math.round() rounds to the nearest *integer*. That requires
+            //multiplying amt by 100 to retain significant digits, rounding, and then dividing it back down to its intended value.
             int count = (int)(amt/list.amt()); //type cast the result of dividing amt by the value of the current bill to integer, to know how many of that bill can be derived from amt.
 
             if(count > 0){ //if a number of bills can be derived from amount, add to purse and decrement amt.
